@@ -106,7 +106,7 @@ export class StudentComponent implements OnInit {
     }
     let getIndex = this.stdsArr.findIndex(s => s.stdId === updatedObj.stdId);
     this.stdsArr[getIndex] = updatedObj;
-    this._snackBar.openSnackBar(`The student with id ${updatedObj.stdId} is added successfully`);
+    this._snackBar.openSnackBar(`The student with id ${updatedObj.stdId} is updated successfully`);
     this.fnameRef.nativeElement.value = '';
     this.lnameRef.nativeElement.value = '';
     this.emailRef.nativeElement.value = '';
