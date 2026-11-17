@@ -51,7 +51,6 @@ export class TodoComponent implements OnInit {
     this.todosArr.push(todo)
     this.todoItemref.nativeElement.value = ''//to reset the form 
     this.isCompletedRef.nativeElement.value = '';
-
     this._snackBar.openSnackBar(`The new todo item with ${todo.todoId} is added successfully`)
   }
 
@@ -77,7 +76,6 @@ export class TodoComponent implements OnInit {
     this.todoItemref.nativeElement.value = '';
     this.isCompletedRef.nativeElement.value = '';
     this._snackBar.openSnackBar(`The new todo item with ${updated_obj.todoId} is Updated successfully`)
-
   }
 
 
@@ -90,11 +88,20 @@ export class TodoComponent implements OnInit {
       this._snackBar.openSnackBar(`The new todo item with ${todo.todoId} is Removed successfully`)
 
     }
-
-
   }
 
+
+  //updatecheckbox 
+  onUpdateCheckbox(todo: Itodo) {
+    let updatedObj = {
+      isCompleted: !todo.isCompleted
+    };
+    let updateIndex = this.todosArr.findIndex(t => t.todoId === todo.todoId);
+    this.todosArr[updateIndex].isCompleted = updatedObj.isCompleted;
+    this._snackBar.openSnackBar("checkbox is updated successfully!!")
+  }
 }
+
 
 
 
