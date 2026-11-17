@@ -1,0 +1,63 @@
+<div class="container mt-5">
+    <h1 class="text-center">Todo Task</h1>
+    <!-- <h2>{{!isEditMode?"Add Todo":"Update Todo"}}</h2> -->
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <h2>{{!isEditMode?"Add Todo":"Update Todo"}}</h2>
+
+                    <div class="form-group">
+                        <label for="todoItem">Todo Item</label>
+                        <input type="text" class="form-control" #todoItem>
+                    </div>
+                    <div class="form-group">
+                        <label for="isCompleted">Is Completed</label>
+                        <select class="form-control" #isCompletedRef>
+                            <option value="">Select Status</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <button *ngIf="!isEditMode" (click)="onAddTodo()" mat-raised-button color="primary"
+                        class="mt-3 w-100">Add
+                        Todo</button>
+                    <button *ngIf="isEditMode" (click)="onUpdateTodo()" mat-raised-button color="primary"
+                        class="mt-3 w-100">Update
+                        Todo</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-body">
+                    <ul class="list-group" *ngIf="todosArr.length>0; else noTodos">
+                        <li class="list-group-item d-flex justify-content-between" *ngFor="let todo of todosArr">
+                            <div>
+                                <strong>{{todo.todoItem}}</strong>
+                                <span class="badge ml-2" [ngClass]="todo.isCompleted?'badge-success':'badge-danger'">
+                                    {{todo.isCompleted?'completed':'Not Completed'}}
+                                </span>
+                            </div>
+                            <div>
+                                <button (click)="onEditTodo(todo)" mat-mini-fab color="primary" class="mr-4"
+                                    aria-label="Example icon button with a delete icon">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+
+                                <button (click)="onRemoveTodo(todo)" mat-mini-fab color="warn"
+                                    aria-label="Example icon button with a delete icon">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <ng-template #noTodos>
+                <p class="alert alert-info">No Todos Added</p>
+            </ng-template>
+        </div>
+    </div>
+</div>
