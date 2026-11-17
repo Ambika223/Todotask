@@ -91,16 +91,19 @@ export class TodoComponent implements OnInit {
   }
 
 
-  //updatecheckbox 
   onUpdateCheckbox(todo: Itodo) {
     let updatedObj = {
       isCompleted: !todo.isCompleted
-    };
-    let updateIndex = this.todosArr.findIndex(t => t.todoId === todo.todoId);
-    this.todosArr[updateIndex].isCompleted = updatedObj.isCompleted;
-    this._snackBar.openSnackBar("checkbox is updated successfully!!")
+    }
+    let getIndex = this.todosArr.findIndex(todos => todos.todoId === todo.todoId);
+    this.todosArr[getIndex].isCompleted = updatedObj.isCompleted;
+    this._snackBar.openSnackBar(`CheckBox is updated successfully`);
   }
 }
+
+
+
+
 
 
 

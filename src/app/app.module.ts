@@ -7,11 +7,13 @@ import { TodoComponent } from './components/todo/todo.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { StudentComponent } from './components/student/student.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoComponent
+    TodoComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,

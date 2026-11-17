@@ -33,7 +33,8 @@
                 <div class="card-body">
                     <ul class="list-group" *ngIf="todosArr.length>0; else noTodos">
                         <li class="list-group-item d-flex justify-content-between" *ngFor="let todo of todosArr">
-                            <div><input type="checkbox" [checked]="todo.isCompleted" (change)="onUpdateCheckbox(todo)">
+                            <div>
+                                <input type="checkbox" [checked]="todo.isCompleted" (change)="onUpdateCheckbox(todo)">
                                 <strong>{{todo.todoItem}}</strong>
                                 <span class="badge ml-2" [ngClass]="todo.isCompleted?'badge-success':'badge-danger'">
                                     {{todo.isCompleted?'completed':'Not Completed'}}
