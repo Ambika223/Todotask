@@ -62,7 +62,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let std of stdsArr; let i=index, trackBy:trackByStdId">
+                                <tr *ngFor="let std of stdsArr; let i=index; trackBy:trackByStdId">
                                     <td>{{i+1}}</td>
                                     <td>{{std.fname}} {{std.lname}}</td>
                                     <td>{{std.email}}</td>
