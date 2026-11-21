@@ -49,7 +49,7 @@ export class StudentComponent implements OnInit {
   ) { }
 
   isOnEditMode: boolean = false;
-  editId!: string;
+  editId: string = '';
   trackByStdId(index: number, std: Istudent) {
     return std.stdId
   }
@@ -112,7 +112,8 @@ export class StudentComponent implements OnInit {
     this.emailRef.nativeElement.value = '';
     this.contactRef.nativeElement.value = '';
     this.activeRef.nativeElement.value = '';
-    this.isOnEditMode = false
+    this.isOnEditMode = false;
+    this.editId = ''
   }
 
   //remove

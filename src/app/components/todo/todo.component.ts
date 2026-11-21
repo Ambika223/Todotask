@@ -13,7 +13,8 @@ export class TodoComponent implements OnInit {
   @ViewChild('todoItem') //@viewChild is finds the html element having the reference
   todoItemref!: ElementRef;//todoItemref:store its reference and ElementRef:provide access to underlying dom Element
   @ViewChild('isCompletedRef') isCompletedRef!: ElementRef<HTMLInputElement>
-  private editId!: string;
+
+  editId: string = '';
   todosArr: Array<Itodo> = [
     {
       todoItem: "HTML",
@@ -76,6 +77,7 @@ export class TodoComponent implements OnInit {
     this.todoItemref.nativeElement.value = '';
     this.isCompletedRef.nativeElement.value = '';
     this._snackBar.openSnackBar(`The new todo item with ${updated_obj.todoId} is Updated successfully`)
+    this.editId = ''
   }
 
 

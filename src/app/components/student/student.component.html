@@ -76,7 +76,9 @@
                                     <td><button class="btn btn-sm btn-outline-primary btn-block"
                                             (click)="onEditStd(std)">Edit</button></td>
                                     <td><button class="btn btn-sm btn-outline-danger btn-block"
-                                            (click)="onRemovestd(std.stdId)">Delete</button></td>
+                                            (click)="onRemovestd(std.stdId)"
+                                            [disabled]="isOnEditMode&&editId===std.stdId">Delete</button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

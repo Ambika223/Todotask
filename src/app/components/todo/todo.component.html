@@ -47,7 +47,8 @@
                                 </button>
 
                                 <button (click)="onRemoveTodo(todo)" mat-mini-fab color="warn"
-                                    aria-label="Example icon button with a delete icon">
+                                    aria-label="Example icon button with a delete icon"
+                                    [disabled]="isEditMode && editId===todo.todoId">
                                     <mat-icon>delete</mat-icon>
                                 </button>
                             </div>
